@@ -39,7 +39,7 @@ function calculadora() {
 
     while (opcion !== 5) {
         mostrarOpciones();
-        opcion = parseInt(prompt("Selecciona una opción:"));
+        opcion = parseInt(prompt("Selecciona una opción: (ver consola)"));
 
         if (opcion >= 1 && opcion <= 4) {
             const num1 = parseFloat(prompt("Ingresa el primer número:"));
