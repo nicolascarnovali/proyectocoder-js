@@ -1,16 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Proyecto JS!</title>
+    <title>Drinks4You</title>
 </head>
+
 <body>
-    <div>
-        <h1>Simulador calculadora!</h1>
-    </div>
+    <header>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="">Productos</a></li>
+                <li><a href="">Combos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Drinks4You</h1>
+        
+        <form class="formulario" onsubmit="realizarCompra(event)">
+            <div class="div__form__container">
+                <div class="div__form">
+                    <label class="label__form" for="nombre">Nombre:</label>
+                    <input class="partesform" type="text" id="nombre" required>
+                </div>
+                <br>
+                <div class="div__form">
+                    <label class="label__form" for="edad">Edad:</label>
+                    <input class="partesform" type="number" id="edad" required>
+                </div>
+                <br>
+                <div class="div__form">
+                    <button class="botonesForm" type="submit">Realizar Compra</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="filtros" id="filtros">
+            <h2>Filtros</h2>
+            <button class="botones__filtro" onclick="filtrarPorHorario()">Filtrar por Horario</button>
+            <button class="botones__filtro" onclick="filtrarPorDireccion()">Filtrar por Dirección</button>
+            <button class="botones__filtro" onclick="filtrarPorNombre()">Filtrar por Nombre</button>
+            </div>
+
+        <div class="filtros" id="licorerias-list">
+            <h2>Listado de Licorerías</h2>
+            <ul class="licoreriasmostradas" id="licorerias-ul"></ul>
+        </div>
+
+    </main>
+    <footer>
+
+    </footer>
+
     <script src="./js/app.js"></script>
 </body>
+
 </html>

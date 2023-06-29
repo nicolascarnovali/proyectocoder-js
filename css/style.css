@@ -1,10 +1,115 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+* {
+    font-family: 'PT Sans', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-h1{
+body {
+    background-color: rgb(11, 1, 63)
+}
+
+h1 {
     text-align: center;
-    margin: 20vh;
+    margin: 2vh;
+    color: white;
+}
+
+.formulario .div__form__container {
+    padding: 2vh;
+    align-items: center;
+    width: 75%;
+    margin: auto;
+}
+
+.formulario .div__form__container .div__form .partesform {
+    display: flex;
+    width: 65%;
+    height: 2rem;
+    margin: 3vh auto;
+}
+
+.formulario .div__form__container .div__form .label__form {
+    margin: auto;
+    display: flex;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
+
+.formulario .div__form__container .div__form .botonesForm {
+    display: flex;
+    width: 60%;
+    margin: 2vh auto;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(64, 168, 54);
+}
+
+.formulario .div__form__container .div__form .botonesForm:hover {
+    background-color: rgb(229, 255, 0);
+}
+
+.form {
+    width: 100%;
+    align-items: center;
+    display: block;
+}
+
+.div {
+    display: inline-block;
+    margin: auto;
+    align-items: center;
+}
+
+.label {
+    font-size: 19px;
+    color: white;
+}
+
+.nav {
+    font-weight: 700;
+    margin-top: 3vh;
+    margin-left: 80%;
+    display: inline-block;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgb(0, 255, 13);
+}
+
+.licoreriasmostradas {
+    width: 50%;
+    color: white;
+}
+
+.filtros {
+    color: rgb(0, 255, 13);
+    margin: 10px 10px 10px;
+}
+
+.botones__filtro{
+    padding: 2px;
+    margin: 10px;
+    background-color: rgb(64, 168, 54);
+}
+
+.botones__filtro:hover{
+    background-color: rgb(229, 255, 0);
 }
