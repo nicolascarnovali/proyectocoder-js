@@ -26,7 +26,7 @@ let licorerias = [
     { nombre: "Saavedra", direccion: "Ruiz Huidobro 4570, Ciudad", horario: "11:00 - 23:00" }
 ];
 
-// Función para mostrar el listado de licorerías
+//Función para mostrar el listado de licorerías
 function mostrarLicorerias(licoreriasMostradas) {
     let licoreriasUL = document.getElementById("licorerias-ul");
     licoreriasUL.innerHTML = "";
@@ -39,7 +39,7 @@ function mostrarLicorerias(licoreriasMostradas) {
     }
 }
 
-// Función para filtrar licorerías por horario
+//Función para filtrar licorerías por horario
 function filtrarPorHorario() {
     let horarioFiltro = prompt("Ingrese el horario para filtrar las licorerías:");
     let licoreriasFiltradas = licorerias.filter(function (licoreria) {
@@ -49,7 +49,7 @@ function filtrarPorHorario() {
     mostrarLicorerias(licoreriasFiltradas);
 }
 
-// Función para filtrar licorerías por dirección
+//Función para filtrar licorerías por dirección
 function filtrarPorDireccion() {
     let direccionFiltro = prompt("Ingrese la dirección para filtrar las licorerías:");
     let licoreriasFiltradas = licorerias.filter(function (licoreria) {
@@ -59,7 +59,7 @@ function filtrarPorDireccion() {
     mostrarLicorerias(licoreriasFiltradas);
 }
 
-// Función para filtrar licorerías por nombre
+//Función para filtrar licorerías por nombre
 function filtrarPorNombre() {
     let nombreFiltro = prompt("Ingrese el nombre para filtrar las licorerías:");
     let licoreriasFiltradas = licorerias.filter(function (licoreria) {
@@ -69,7 +69,7 @@ function filtrarPorNombre() {
     mostrarLicorerias(licoreriasFiltradas);
 }
 
-// Función para calcular el total de la compra
+//Función para calcular el total de la compra
 function calcularTotal(producto, cantidad) {
     let precio = producto.precio;
     return precio * cantidad;
@@ -80,7 +80,7 @@ function verificarEdad(edad) {
     return edad >= 18;
 }
 
-// Función para filtrar productos por precio
+//Función para filtrar productos por precio
 function filtrarProductosPorPrecio(maxPrecio) {
     return productos.filter(function (producto) {
         return producto.precio <= maxPrecio;
@@ -92,7 +92,7 @@ function realizarCompra() {
     let nombre = document.getElementById("nombre").value;
     let edad = document.getElementById("edad").value;
 
-    if (verificarEdad(edad)) {
+    if (verificarEdad(edad) && nombre.length >= 3) {
         let mensaje = "Hola, " + nombre + ". Puede realizar su compra:";
         for (let i = 0; i < productos.length; i++) {
             mensaje += "\n" + (i + 1) + ". " + productos[i].nombre + " - $" + productos[i].precio;
@@ -108,26 +108,34 @@ function realizarCompra() {
 
             // Efectuar una salida por alert()
             alert("El total de su compra es: $" + total.toFixed(2));
+
+            if (isNaN(total) || total <= 0) {
+                alert("El total a pagar debe ser un número válido y mayor que cero.");
+                return;
+            }
+            else {
+                let opcionesLicorerias = "";
+                for (let i = 0; i < licorerias.length; i++) {
+                    opcionesLicorerias += i + 1 + ". " + licorerias[i].nombre + "\n";
+                }
+                let opcionSeleccionada = parseInt(prompt("Seleccione una licorería para la entrega:\n" + opcionesLicorerias)) - 1;
+
+                if (opcionSeleccionada >= 0 && opcionSeleccionada < licorerias.length) {
+                    let licoreriaSeleccionada = licorerias[opcionSeleccionada];
+                    alert("Licorería seleccionada para la entrega:\n\nNombre: " + licoreriaSeleccionada.nombre + "\nDirección: " + licoreriaSeleccionada.direccion + "\nHorario: " + licoreriaSeleccionada.horario);
+                } else {
+                    alert("Opción inválida. No se ha seleccionado una licorería válida.");
+                }
+            }
         } else {
             alert("Opción inválida. Inténtelo de nuevo.");
         }
     } else {
-        alert("Lo siento, debe ser mayor de edad para realizar una compra.");
-    }
-
-    // Prompt para elegir la licorería
-    let opcionesLicorerias = "";
-    for (let i = 0; i < licorerias.length; i++) {
-        opcionesLicorerias += i + 1 + ". " + licorerias[i].nombre + "\n";
-    }
-    let opcionSeleccionada = parseInt(prompt("Seleccione una licorería para la entrega:\n" + opcionesLicorerias)) - 1;
-
-    if (opcionSeleccionada >= 0 && opcionSeleccionada < licorerias.length) {
-        let licoreriaSeleccionada = licorerias[opcionSeleccionada];
-        alert("Licorería seleccionada para la entrega:\n\nNombre: " + licoreriaSeleccionada.nombre + "\nDirección: " + licoreriaSeleccionada.direccion + "\nHorario: " + licoreriaSeleccionada.horario);
-    } else {
-        alert("Opción inválida. No se ha seleccionado una licorería válida.");
+        if (nombre.length < 3) {
+            alert("El nombre debe contener al menos 3 caracteres.");
+        } else {
+            alert("Lo siento, debe ser mayor de edad para realizar una compra.");
+        }
     }
 }
-
 mostrarLicorerias(licorerias);
