@@ -37,14 +37,14 @@ let carrito = [];
 
 // Objetos de JS
 let productos = [
-    { nombre: "Cerveza Rubia Heineken", precio: 899.99, imagen: "../assets/img/CervezaRubiaHeineken.jpg" },
-    { nombre: "Cerveza Rubia Corona", precio: 799.99, imagen: "../assets/img/CervezaRubiaCorona.jpg" },
-    { nombre: "Vodka Smirnoff", precio: 1499.99, imagen: "../assets/img/VodkaSmirnoff.jpg" },
-    { nombre: "Vodka Sky", precio: 1199.99, imagen: "../assets/img/VodkaSky.webp" },
-    { nombre: "Gancia Americano", precio: 799.99, imagen: "../assets/img/GanciaAmericano.jpg" },
-    { nombre: "Campari Aperitivo", precio: 1899.99, imagen: "../assets/img/CampariAperitivo.webp" },
-    { nombre: "Gin MG", precio: 5399.99, imagen: "../assets/img/GinMG.webp" },
-    { nombre: "Whisky Jack Daniels", precio: 15999.99, imagen: "../assets/img/WhiskyJackDaniels.webp" },
+    { nombre: "Cerveza Rubia Heineken", precio: 899.99, imagen: "./assets/img/CervezaRubiaHeineken.jpg" },
+    { nombre: "Cerveza Rubia Corona", precio: 799.99, imagen: "./assets/img/CervezaRubiaCorona.jpg" },
+    { nombre: "Vodka Smirnoff", precio: 1499.99, imagen: "./assets/img/VodkaSmirnoff.jpg" },
+    { nombre: "Vodka Sky", precio: 1199.99, imagen: "./assets/img/VodkaSky.webp" },
+    { nombre: "Gancia Americano", precio: 799.99, imagen: "./assets/img/GanciaAmericano.jpg" },
+    { nombre: "Campari Aperitivo", precio: 1899.99, imagen: "./assets/img/CampariAperitivo.webp" },
+    { nombre: "Gin MG", precio: 5399.99, imagen: "./assets/img/GinMG.webp" },
+    { nombre: "Whisky Jack Daniels", precio: 15999.99, imagen: "./assets/img/WhiskyJackDaniels.webp" },
 ];
 
 // Variables de JS necesarias
