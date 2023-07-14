@@ -17,48 +17,6 @@ h1 {
     color: white;
 }
 
-.formulario .div__form__container {
-    padding: 2vh;
-    align-items: center;
-    width: 75%;
-    margin: auto;
-}
-
-.formulario .div__form__container .div__form .partesform {
-    display: flex;
-    width: 65%;
-    height: 2rem;
-    margin: 3vh auto;
-}
-
-.formulario .div__form__container .div__form .label__form {
-    margin: auto;
-    display: flex;
-    width: 75%;
-    align-items: center;
-    justify-content: center;
-    color: rgb(255, 255, 255);
-}
-
-.formulario .div__form__container .div__form .botonesForm {
-    display: flex;
-    width: 60%;
-    margin: 2vh auto;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(64, 168, 54);
-}
-
-.formulario .div__form__container .div__form .botonesForm:hover {
-    background-color: rgb(229, 255, 0);
-}
-
-.form {
-    width: 100%;
-    align-items: center;
-    display: block;
-}
-
 .div {
     display: inline-block;
     margin: auto;
