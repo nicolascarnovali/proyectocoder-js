@@ -75,18 +75,18 @@ function agregarAlCarrito(producto, cantidad) {
 
         if (cantidadTotal <= 100) {
             productoExistente.cantidad = cantidadTotal;
-
-            if (cantidadTotal < 5) {
-                delete productoExistente.descuento;
-            } else if (!productoExistente.descuento) {
-                productoExistente.descuento = true;
-            }
         } else {
             alert("No se pueden agregar más de 100 unidades del producto: " + producto.nombre);
             return;
         }
     } else {
         producto.cantidad = cantidad;
+
+        // Aplicar descuento automáticamente si se agregan 5 o más productos
+        if (cantidad >= 5) {
+            producto.descuento = true;
+        }
+
         carrito.push(producto);
     }
 
@@ -99,7 +99,6 @@ function agregarAlCarrito(producto, cantidad) {
     if (window.location.href.includes("carrito.html")) {
         mostrarCarrito();
     }
-
     mostrarCarrito();
 }
 
@@ -287,7 +286,6 @@ function actualizarCantidad(index, cantidad) {
         mostrarCarrito();
     }
 }
-
 
 function mostrarSeleccionLicoreria() {
     let licoreriasSelect = document.createElement("select");
