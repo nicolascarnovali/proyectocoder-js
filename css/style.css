@@ -14,7 +14,7 @@ body {
 h1 {
     text-align: center;
     margin: 2vh;
-    color: white;
+    color: rgb(225, 0, 255);
 }
 
 .div {
@@ -73,7 +73,7 @@ a:hover {
 }
 
 .h2 {
-    color: white;
+    color: rgb(134, 134, 134);
     font-size: 20px;
     margin: 10px;
     text-align: center;
@@ -190,4 +190,21 @@ a:hover {
 
 .productos-btns:hover{
     background-color: rgb(229, 255, 0);
+}
+
+.licoreria-seleccionada{
+    margin: 7vh auto;
+}
+
+.licoreria-seleccionada h3{
+    color: rgb(255, 0, 0);
+}
+
+.licoreria-seleccionada p{
+    color: rgb(255, 238, 0);
+}
+
+.descuento{
+    color: white;
+    text-align: center;
 }

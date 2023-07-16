@@ -165,6 +165,7 @@ function mostrarCarrito() {
 
     if (carrito.length === 0) {
         carritoContainer.innerText = "El carrito está vacío.";
+        carritoContainer.style.color = "white";
     } else {
         let subtotal = 0;
         let descuentoTotal = 0;
@@ -239,26 +240,6 @@ function mostrarCarrito() {
     }
 }
 
-function actualizarCantidad(index, cantidad) {
-    let carritoData = localStorage.getItem("carrito");
-    carrito = carritoData ? JSON.parse(carritoData) : [];
-
-    if (index >= 0 && index < carrito.length) {
-        let producto = carrito[index];
-        producto.cantidad = cantidad;
-
-        if (cantidad >= 5) {
-            producto.descuento = true;
-        } else {
-            delete producto.descuento;
-        }
-
-        localStorage.setItem("carrito", JSON.stringify(carrito));
-        mostrarCarrito();
-        mostrarTotalCompra();
-    }
-}
-
 function mostrarTotalCompra() {
     let carrito = JSON.parse(localStorage.getItem("carrito"));
 
@@ -281,12 +262,32 @@ function mostrarTotalCompra() {
         let totalCompra = document.getElementById("total-compra");
         totalCompra.innerText = "Total de la compra: $" + total.toFixed(2);
 
-        document.getElementById("finalizar-compra-btn").style.display = "none";
+        document.getElementById("finalizar-compra-btn").style.display = "block";
         mostrarSeleccionLicoreria();
     } else {
         alert("El carrito está vacío. Agregue productos antes de finalizar la compra.");
     }
 }
+
+function actualizarCantidad(index, cantidad) {
+    let carritoData = localStorage.getItem("carrito");
+    carrito = carritoData ? JSON.parse(carritoData) : [];
+
+    if (index >= 0 && index < carrito.length) {
+        let producto = carrito[index];
+        producto.cantidad = cantidad;
+
+        if (cantidad >= 5) {
+            producto.descuento = true;
+        } else {
+            delete producto.descuento;
+        }
+
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        mostrarCarrito();
+    }
+}
+
 
 function mostrarSeleccionLicoreria() {
     let licoreriasSelect = document.createElement("select");
@@ -298,6 +299,7 @@ function mostrarSeleccionLicoreria() {
         option.text = licorerias[i].nombre;
         licoreriasSelect.appendChild(option);
     }
+
     let licoreriaSeleccionada = document.getElementById("licoreria-seleccionada");
     licoreriaSeleccionada.innerHTML = "";
     licoreriaSeleccionada.appendChild(licoreriasSelect);
@@ -308,23 +310,26 @@ function mostrarSeleccionLicoreria() {
         let licoreriaIndex = licoreriasSelect.value;
         if (licoreriaIndex !== "") {
             let licoreria = licorerias[licoreriaIndex];
+            vaciarCarrito();
             mostrarDatosLicoreria(licoreria);
-            borrarProductosDelCarrito();
         } else {
             alert("Seleccione una licorería válida.");
         }
     });
+
     licoreriaSeleccionada.appendChild(siguienteBtn);
 }
 
+// Función para mostrar los datos de la licorería seleccionada
 function mostrarDatosLicoreria(licoreria) {
     let datosLicoreria = document.createElement("div");
     datosLicoreria.innerHTML = `
-      <h3>Licorería seleccionada para la entrega:</h3>
-      <p><strong>Nombre:</strong> ${licoreria.nombre}</p>
-      <p><strong>Dirección:</strong> ${licoreria.direccion}</p>
-      <p><strong>Horario:</strong> ${licoreria.horario}</p>
+        <h3>Licorería seleccionada para la entrega:</h3>
+        <p><strong>Nombre:</strong> ${licoreria.nombre}</p>
+        <p><strong>Dirección:</strong> ${licoreria.direccion}</p>
+        <p><strong>Horario:</strong> ${licoreria.horario}</p>
     `;
+
     let licoreriaSeleccionada = document.getElementById("licoreria-seleccionada");
     licoreriaSeleccionada.innerHTML = "";
     licoreriaSeleccionada.appendChild(datosLicoreria);
