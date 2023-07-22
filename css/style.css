@@ -122,6 +122,10 @@ li {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.swal2-container {
+    z-index: 99999 !important;
+}
+
 .verificar-btn{
     background-color: rgb(64, 168, 54);
     padding: 2px;

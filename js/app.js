@@ -26,7 +26,12 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("nombre", nombre);
             localStorage.setItem("edad", edad);
         } else {
-            alert("Nombre inválido o edad insuficiente");
+            Swal.fire({
+                icon: 'error',
+                title: '¡Error!',
+                text: 'Nombre inválido o edad insuficiente. Verifica tus datos e inténtalo nuevamente.',
+                showConfirmButton: true,
+            });
         }
     });
 
