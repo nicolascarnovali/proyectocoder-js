@@ -25,12 +25,21 @@ document.addEventListener("DOMContentLoaded", function () {
             overlay.style.display = "none";
             localStorage.setItem("nombre", nombre);
             localStorage.setItem("edad", edad);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Verificación Exitosa!',
+                text: 'Has sido verificado correctamente.',
+                showConfirmButton: false,
+                timer: 2500,
+            });
         } else {
             Swal.fire({
                 icon: 'error',
-                title: '¡Error!',
-                text: 'Nombre inválido o edad insuficiente. Verifica tus datos e inténtalo nuevamente.',
-                showConfirmButton: true,
+                title: 'Error en la Verificación',
+                text: 'Nombre inválido o edad insuficiente.',
+                showConfirmButton: false,
+                timer: 2500,
             });
         }
     });
@@ -86,6 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h1 class="nombre-producto">${producto.nombre}</h1>
                     <p>$${producto.precio}</p>
                     <img class="imagen-producto" src="${producto.imagenURL}" alt="${producto.nombre}">
+                    <p>Cantidad</p>
                     <input type="number" class="cantidad-input" value="${getCantidadEnCarrito(producto)}" min="1">
                     <button class="boton-agregar">Agregar al carrito</button>
                 </div>
